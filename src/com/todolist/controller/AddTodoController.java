@@ -15,39 +15,39 @@ import com.todolist.model.Todo;
 
 @WebServlet("/AddTodoController")
 public class AddTodoController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	private TodoDaoImpl todoDaoImpl;
+    private static final long serialVersionUID = 1L;
+    private TodoDaoImpl todoDaoImpl;
 
-	@Resource(name = "jdbc/todoapp")
-	private DataSource dataSource;
+    @Resource(name = "jdbc/todoapp")
+    private DataSource dataSource;
 
-	@Override
-	public void init() throws ServletException {
-		super.init();
+    @Override
+    public void init() throws ServletException {
+	super.init();
 
-		try {
-			todoDaoImpl = new TodoDaoImpl(dataSource);
-		} catch (Exception e) {
-			throw new ServletException(e);
-		}
+	try {
+	    todoDaoImpl = new TodoDaoImpl(dataSource);
+	} catch (Exception e) {
+	    throw new ServletException(e);
 	}
+    }
 
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		request.getRequestDispatcher("views/add-todo.jsp").forward(request, response);
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	    throws ServletException, IOException {
+	request.getRequestDispatcher("views/add-todo.jsp").forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	    throws ServletException, IOException {
+	String newTodo = request.getParameter("todo");
+	String category = request.getParameter("category");
+
+	try {
+	    todoDaoImpl.addTodo(new Todo(newTodo, category));
+	} catch (Exception e) {
+	    e.printStackTrace();
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String newTodo = request.getParameter("todo");
-		String category = request.getParameter("category");
-
-		try {
-			todoDaoImpl.addTodo(new Todo(newTodo, category));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		response.sendRedirect("ListTodoController");
-	}
+	response.sendRedirect("ListTodoController");
+    }
 }

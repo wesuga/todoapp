@@ -15,10 +15,10 @@
 
 		<table class="table table-striped">
 			<caption>Your Todos are:</caption>
-			<thead>
+			<tr>
 				<th>Description</th>
 				<th>Category</th>
-			</thead>
+			</tr>
 			<tbody>
 
 				<c:forEach items="${todo_list}" var="todo">

@@ -2,8 +2,8 @@
 
 	<Resource name="jdbc/todoapp" auth="Container"
 		type="javax.sql.DataSource" maxActive="20" maxIdle="5" maxWait="10000"
-		username="root" password="pluralsight"
+		username="root" password="root"
 		driverClassName="com.mysql.cj.jdbc.Driver"
-		url="jdbc:mysql://localhost:3306/todos?serverTimezone=UTC" />
+		url="jdbc:mysql://localhost:3306/todos" />
 
 </Context>

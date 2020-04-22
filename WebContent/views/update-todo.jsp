@@ -13,17 +13,17 @@
 	<div class="container">
 		<h1>New Todo:</h1>
 		<form action="UpdateTodoController" method="POST">
-		<input type="hidden" name="todoId" value="${the_todo.id}"/>
+			<input type="hidden" name="todoId" value="${the_todo.id}" />
 			<fieldset class="form-group">
 				<label>Description</label> <input name="todo" type="text"
-					class="form-control" value="${the_todo.todo}"/> <br />
+					class="form-control" value="${the_todo.todo}" /> <br />
 			</fieldset>
 			<fieldset class="form-group">
 				<label>Category</label> <input name="category" type="text"
-					class="form-control" value="${the_todo.category}"/> <br />
+					class="form-control" value="${the_todo.category}" /> <br />
 			</fieldset>
-			<input value="Save" type="submit" class="btn btn-success" />
-			<a href="ListTodoController" class="btn btn-info">Back to List</a>
+			<input value="Save" type="submit" class="btn btn-success" /> <a
+				href="ListTodoController" class="btn btn-info">Back to List</a>
 		</form>
 	</div>
 	<script src="webjars/jquery/3.4.1/jquery.min.js"></script>
