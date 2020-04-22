@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Todo</title>
@@ -14,12 +14,12 @@
 		<h1>New Todo:</h1>
 		<form action="AddTodoController" method="POST">
 			<fieldset class="form-group">
-				<label>Description</label> <input name="todo" type="text"
-					class="form-control" /> <br />
+				<legend>Description</legend>
+				<input name="todo" type="text" class="form-control" /> <br />
 			</fieldset>
 			<fieldset class="form-group">
-				<label>Category</label> <input name="category" type="text"
-					class="form-control" /> <br />
+				<legend>Category</legend>
+				<input name="category" type="text" class="form-control" /> <br />
 			</fieldset>
 			<input value="Add" type="submit" class="btn btn-success" /> <a
 				href="ListTodoController" class="btn btn-info">Back to List</a>

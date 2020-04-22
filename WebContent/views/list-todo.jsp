@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Todo</title>
@@ -16,9 +16,9 @@
 		<table class="table table-striped">
 			<caption>Your Todos are:</caption>
 			<tr>
-				<th>Description</th>
-				<th>Category</th>
-				<th>Action</th>
+				<th id="desc">Description</th>
+				<th id="category">Category</th>
+				<th id="action">Action</th>
 			</tr>
 			<tbody>
 

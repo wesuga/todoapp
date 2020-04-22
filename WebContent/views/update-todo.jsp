@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Todo</title>
@@ -15,12 +15,14 @@
 		<form action="UpdateTodoController" method="POST">
 			<input type="hidden" name="todoId" value="${the_todo.id}" />
 			<fieldset class="form-group">
-				<label>Description</label> <input name="todo" type="text"
-					class="form-control" value="${the_todo.todo}" /> <br />
+				<legend>Description</legend>
+				<input name="todo" type="text" class="form-control"
+					value="${the_todo.todo}" /> <br />
 			</fieldset>
 			<fieldset class="form-group">
-				<label>Category</label> <input name="category" type="text"
-					class="form-control" value="${the_todo.category}" /> <br />
+				<legend>Category</legend>
+				<input name="category" type="text" class="form-control"
+					value="${the_todo.category}" /> <br />
 			</fieldset>
 			<input value="Save" type="submit" class="btn btn-success" /> <a
 				href="ListTodoController" class="btn btn-info">Back to List</a>
