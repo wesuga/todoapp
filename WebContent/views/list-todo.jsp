@@ -18,6 +18,7 @@
 			<tr>
 				<th>Description</th>
 				<th>Category</th>
+				<th>Action</th>
 			</tr>
 			<tbody>
 
