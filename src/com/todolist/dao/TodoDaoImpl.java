@@ -13,8 +13,6 @@ import com.todolist.model.Todo;
 public class TodoDaoImpl implements TodoDao {
     private DataSource dataSource;
 
-    List<Todo> todos = new ArrayList<>();
-
     public TodoDaoImpl(DataSource dataSource) {
 	super();
 	this.dataSource = dataSource;
@@ -22,6 +20,7 @@ public class TodoDaoImpl implements TodoDao {
 
     @Override
     public List<Todo> getTodos() throws Exception {
+	List<Todo> todos = new ArrayList<>();
 	String sql = "SELECT * from todo";
 
 	try (Connection conn = dataSource.getConnection();
