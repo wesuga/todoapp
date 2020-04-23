@@ -15,11 +15,12 @@
 		<form action="AddTodoController" method="POST">
 			<fieldset class="form-group">
 				<legend>Description</legend>
-				<input name="todo" type="text" class="form-control" /> <br />
+				<input name="todo" type="text" class="form-control" required /> <br />
 			</fieldset>
 			<fieldset class="form-group">
 				<legend>Category</legend>
-				<input name="category" type="text" class="form-control" /> <br />
+				<input name="category" type="text" class="form-control" required />
+				<br />
 			</fieldset>
 			<input value="Add" type="submit" class="btn btn-success" /> <a
 				href="ListTodoController" class="btn btn-info">Back to List</a>
