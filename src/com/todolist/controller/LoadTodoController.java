@@ -26,7 +26,6 @@ public class LoadTodoController extends HttpServlet {
     @Override
     public void init() throws ServletException {
 	super.init();
-
 	try {
 	    todoDaoImpl = new TodoDaoImpl(dataSource);
 	} catch (Exception e) {
@@ -37,7 +36,6 @@ public class LoadTodoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
-	
 	try {
 	    String todoId = request.getParameter("tempId");
 	    Todo todo = todoDaoImpl.loadTodo(todoId);
@@ -46,7 +44,5 @@ public class LoadTodoController extends HttpServlet {
 	} catch (Exception e) {
 	    logger.warning("Error in update todo");
 	}
-
     }
-
 }

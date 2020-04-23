@@ -25,14 +25,13 @@ public class DeleteTodoController extends HttpServlet {
     @Override
     public void init() throws ServletException {
 	super.init();
-
 	try {
 	    todoDaoImpl = new TodoDaoImpl(dataSource);
 	} catch (Exception e) {
 	    throw new ServletException(e);
 	}
     }
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
@@ -42,7 +41,5 @@ public class DeleteTodoController extends HttpServlet {
 	} catch (Exception e) {
 	    logger.warning("Error in delete todo");
 	}
-	
     }
-
 }

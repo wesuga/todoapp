@@ -27,7 +27,6 @@ public class ListTodoController extends HttpServlet {
     @Override
     public void init() throws ServletException {
 	super.init();
-
 	try {
 	    todoDaoImpl = new TodoDaoImpl(dataSource);
 	} catch (Exception e) {
@@ -46,7 +45,5 @@ public class ListTodoController extends HttpServlet {
 	} catch (Exception e) {
 	    logger.warning("Error in list todo");
 	}
-
     }
-
 }

@@ -26,7 +26,6 @@ public class AddTodoController extends HttpServlet {
     @Override
     public void init() throws ServletException {
 	super.init();
-
 	try {
 	    todoDaoImpl = new TodoDaoImpl(dataSource);
 	} catch (Exception e) {

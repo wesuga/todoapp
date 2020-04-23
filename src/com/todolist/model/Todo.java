@@ -46,5 +46,4 @@ public class Todo {
     public String toString() {
 	return String.format("Todo [todos=%s, category=%s]", todos, category);
     }
-
 }

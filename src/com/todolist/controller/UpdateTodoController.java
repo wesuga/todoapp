@@ -26,7 +26,6 @@ public class UpdateTodoController extends HttpServlet {
     @Override
     public void init() throws ServletException {
 	super.init();
-
 	try {
 	    todoDaoImpl = new TodoDaoImpl(dataSource);
 	} catch (Exception e) {
@@ -50,5 +49,4 @@ public class UpdateTodoController extends HttpServlet {
 	    logger.warning("Error in update todo");
 	}
     }
-
 }
