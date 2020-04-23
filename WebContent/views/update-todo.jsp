@@ -17,7 +17,7 @@
 			<fieldset class="form-group">
 				<legend>Description</legend>
 				<input name="todo" type="text" class="form-control"
-					value="${the_todo.todo}" /> <br />
+					value="${the_todo.todos}" /> <br />
 			</fieldset>
 			<fieldset class="form-group">
 				<legend>Category</legend>

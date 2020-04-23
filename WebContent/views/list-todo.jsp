@@ -33,7 +33,7 @@
 						<c:param name="todoId" value="${todo.id}" />
 					</c:url>
 					<tr>
-						<td>${todo.todo}</td>
+						<td>${todo.todos}</td>
 						<td>${todo.category}</td>
 						<td><a href="${loadTodoLink}" class="btn btn-primary">Update</a>
 							<a class="btn btn-danger" href="${deleteLink}"

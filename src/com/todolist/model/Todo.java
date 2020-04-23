@@ -2,35 +2,19 @@ package com.todolist.model;
 
 public class Todo {
     private int id;
-    private String todo;
+    private String todos;
     private String category;
 
-    public Todo(String todo, String category) {
-	super();
-	this.todo = todo;
-	this.category = category;
-    }
-
-    public Todo(int id, String todo, String category) {
+    public Todo(int id, String todos, String category) {
 	super();
 	this.id = id;
-	this.todo = todo;
+	this.todos = todos;
 	this.category = category;
     }
 
-    public String getTodo() {
-	return todo;
-    }
-
-    public void setTodo(String todo) {
-	this.todo = todo;
-    }
-
-    public String getCategory() {
-	return category;
-    }
-
-    public void setCategory(String category) {
+    public Todo(String todos, String category) {
+	super();
+	this.todos = todos;
 	this.category = category;
     }
 
@@ -42,9 +26,25 @@ public class Todo {
 	this.id = id;
     }
 
+    public String getTodos() {
+	return todos;
+    }
+
+    public void setTodos(String todos) {
+	this.todos = todos;
+    }
+
+    public String getCategory() {
+	return category;
+    }
+
+    public void setCategory(String category) {
+	this.category = category;
+    }
+
     @Override
     public String toString() {
-	return String.format("Todo [todo=%s, category=%s]", todo, category);
+	return String.format("Todo [todos=%s, category=%s]", todos, category);
     }
 
 }

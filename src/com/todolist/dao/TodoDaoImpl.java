@@ -42,7 +42,7 @@ public class TodoDaoImpl implements TodoDao {
     public void addTodo(Todo todo) throws Exception {
 	String sql = "INSERT INTO todo (todo, category) values (?, ?)";
 	try (Connection conn = dataSource.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
-	    stmt.setString(1, todo.getTodo());
+	    stmt.setString(1, todo.getTodos());
 	    stmt.setString(2, todo.getCategory());
 	    stmt.executeUpdate();
 	}
@@ -73,7 +73,7 @@ public class TodoDaoImpl implements TodoDao {
     public void updateTodo(Todo todo) throws Exception {
 	String sql = "UPDATE todo SET todo=?, category=? WHERE id=?";
 	try (Connection conn = dataSource.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
-	    stmt.setString(1, todo.getTodo());
+	    stmt.setString(1, todo.getTodos());
 	    stmt.setString(2, todo.getCategory());
 	    stmt.setInt(3, todo.getId());
 	    stmt.executeUpdate();
