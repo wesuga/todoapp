@@ -1,6 +1,7 @@
 package com.todolist.controller;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -17,6 +18,7 @@ import com.todolist.model.Todo;
 public class AddTodoController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private TodoDaoImpl todoDaoImpl;
+    private Logger logger;
 
     @Resource(name = "jdbc/todoapp")
     private DataSource dataSource;
@@ -35,19 +37,23 @@ public class AddTodoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
-	request.getRequestDispatcher("views/add-todo.jsp").forward(request, response);
+	try {
+	    request.getRequestDispatcher("views/add-todo.jsp").forward(request, response);
+	} catch (Exception e) {
+	    logger.warning("Error page");
+	}
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
-	String newTodo = request.getParameter("todo");
-	String category = request.getParameter("category");
-
 	try {
+	    String newTodo = request.getParameter("todo");
+	    String category = request.getParameter("category");
 	    todoDaoImpl.addTodo(new Todo(newTodo, category));
+	    response.sendRedirect("ListTodoController");
 	} catch (Exception e) {
-	    e.printStackTrace();
+	    logger.warning("Error in add todo");
 	}
-	response.sendRedirect("ListTodoController");
     }
 }

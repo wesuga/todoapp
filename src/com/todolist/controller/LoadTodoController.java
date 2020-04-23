@@ -1,6 +1,7 @@
 package com.todolist.controller;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -17,6 +18,7 @@ import com.todolist.model.Todo;
 public class LoadTodoController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private TodoDaoImpl todoDaoImpl;
+    private Logger logger;
 
     @Resource(name = "jdbc/todoapp")
     private DataSource dataSource;
@@ -32,16 +34,17 @@ public class LoadTodoController extends HttpServlet {
 	}
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
-	String todoId = request.getParameter("tempId");
+	
 	try {
+	    String todoId = request.getParameter("tempId");
 	    Todo todo = todoDaoImpl.loadTodo(todoId);
 	    request.setAttribute("the_todo", todo);
 	    request.getRequestDispatcher("views/update-todo.jsp").forward(request, response);
 	} catch (Exception e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
+	    logger.warning("Error in update todo");
 	}
 
     }

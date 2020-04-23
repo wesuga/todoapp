@@ -2,6 +2,7 @@ package com.todolist.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -18,6 +19,7 @@ import com.todolist.model.Todo;
 public class ListTodoController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private TodoDaoImpl todoDaoImpl;
+    private Logger logger;
 
     @Resource(name = "jdbc/todoapp")
     private DataSource dataSource;
@@ -33,16 +35,18 @@ public class ListTodoController extends HttpServlet {
 	}
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
 	List<Todo> todos = null;
 	try {
 	    todos = todoDaoImpl.getTodos();
+	    request.setAttribute("todo_list", todos);
+	    request.getRequestDispatcher("views/list-todo.jsp").forward(request, response);
 	} catch (Exception e) {
-	    e.printStackTrace();
+	    logger.warning("Error in list todo");
 	}
-	request.setAttribute("todo_list", todos);
-	request.getRequestDispatcher("views/list-todo.jsp").forward(request, response);
+
     }
 
 }
