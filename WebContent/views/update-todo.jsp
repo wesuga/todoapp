@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1>New Todo:</h1>
+		<h1>Update Todo:</h1>
 		<form action="UpdateTodoController" method="POST">
 			<input type="hidden" name="todoId" value="${the_todo.id}" />
 			<fieldset class="form-group">
