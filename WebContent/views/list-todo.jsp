@@ -1,12 +1,14 @@
 <%@ include file="common/header.jspf"%>
 <nav class="navbar navbar-default">
-	<a href="#" class="navbar-brand">TodoApp</a>
-	<ul class="nav navbar-nav navbar-left">
-		<li class="active"><a href="ListTodoController">My Todos</a></li>
-	</ul>
-	<ul class="nav navbar-nav navbar-right">
-		<li><a href="LogoutController">Logout</a></li>
-	</ul>
+	<div class="container-fluid">
+		<a href="#" class="navbar-brand">TodoApp</a>
+		<ul class="nav navbar-nav navbar-left">
+			<li class="active"><a href="ListTodoController">My Todos</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="LogoutController">Logout</a></li>
+		</ul>
+	</div>
 </nav>
 <div class="container">
 	<table class="table table-striped">
