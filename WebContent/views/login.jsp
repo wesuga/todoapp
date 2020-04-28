@@ -3,12 +3,15 @@
 	<a href="#" class="navbar-brand">TodoApp</a>
 </nav>
 <div class="container">
-	<form action="LoginTodoController" method="POST">
-		Username: <input type="text" name="username" required />
-		Password: <input type="password" name="password" required/>
-		<button type="submit" value="Log in" class="btn btn-primary">Log in</button> <font color="red">${errorMessage}</font>
+	<form class="form-inline" action="LoginController" method="POST">
+		<div class="form-group">
+			<input type="text" class="form-control" name="username" placeholder="Username">
+		</div>
+		<div class="form-group">
+			<input type="password" class="form-control" name="password" placeholder="Password">
+		</div>
+		<button type="submit" class="btn btn-default">Log in</button>
+		<font color="red"><b>${errorMessage}</b></font>
 	</form>
 </div>
-
-</body>
-</html>
+<%@ include file="common/footer.jspf"%>
