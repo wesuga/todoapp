@@ -8,7 +8,7 @@
 		<input type="hidden" name="todoId" value="${the_todo.id}" />
 		<fieldset class="form-group">
 			<legend>Description</legend>
-			<input name="todo" type="text" class="form-control" value="${the_todo.todos}" required /> <br />
+			<input name="todo" type="text" class="form-control" value="${the_todo.todo}" required /> <br />
 		</fieldset>
 		<fieldset class="form-group">
 			<legend>Category</legend>
