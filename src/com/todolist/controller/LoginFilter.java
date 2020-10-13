@@ -10,23 +10,21 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-@WebFilter({ "/AddTodoController", "/DeleteTodoController", "/ListTodoController", "/LoadTodoController",
-	"/UpdateTodoController" })
+@WebFilter({"/AddTodoController", "/DeleteTodoController", "/ListTodoController",
+    "/LoadTodoController", "/UpdateTodoController"})
 public class LoginFilter implements Filter {
-    public void destroy() {
-    }
+  public void destroy() {}
 
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-	    throws IOException, ServletException {
-	HttpServletRequest httpRequest = (HttpServletRequest) request;
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+      throws IOException, ServletException {
+    HttpServletRequest httpRequest = (HttpServletRequest) request;
 
-	if (httpRequest.getSession().getAttribute("username") != null) {
-	    chain.doFilter(request, response);
-	} else {
-	    httpRequest.getRequestDispatcher("LoginController").forward(request, response);
-	}
+    if (httpRequest.getSession().getAttribute("username") != null) {
+      chain.doFilter(request, response);
+    } else {
+      httpRequest.getRequestDispatcher("LoginController").forward(request, response);
     }
+  }
 
-    public void init(FilterConfig fConfig) throws ServletException {
-    }
+  public void init(FilterConfig fConfig) throws ServletException {}
 }
